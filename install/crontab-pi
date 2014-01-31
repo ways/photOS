@@ -1,0 +1,16 @@
+# m h  dom mon dow   command
+
+MAILTO=user@example.com
+PHOTOS="$HOME/photOS/"
+
+#Sync owncloud
+@hourly		$PHOTOS/helpers/sync-owncloud.sh
+
+#Preliminary photo display
+0 7-18 * * *	$PHOTOS/photos/basic.sh
+
+#Baby monitor
+0 19 * * * 	$PHOTOS/helpers/kill.sh; $PHOTOS/streams/dpi.sh
+
+#Night
+0 1 * * *	$PHOTOS/helpers/kill.sh

@@ -1,0 +1,4 @@
+* Clean/separate out passwords from configs.
+* Make less dependant on owncloud?
+* Make less dependant on paths.
+
