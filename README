@@ -1,0 +1,20 @@
+photOS v2
+=========
+
+Install
+-------
+
+* Copy install/passwords.dist to install/passwords
+* Run install/install.sh
+
+Structure
+---------
+
+* install/ is only needed at install-time
+* photos/ are plugins to display local photos
+* videos/ are plugins to display local videos
+* webcams/ are plugins/examples to display webcam pics
+* streams/ are plugins/examples to display video streams
+* helpers/ are scripts to sync ownCloud, kill scripts when needed, etc.
+
+Check crontabs after install to customize your system.

@@ -39,3 +39,6 @@ echo "Remember to:
 * set credentials in /etc/ssmtp.conf
 * set credentials in /home/pi/photOS/install/owncloud.cfg
 * set a MAILTO address in crontab if you want e-mails to gome somewhere"
+
+#TODO
+#install pyOwnCloud
