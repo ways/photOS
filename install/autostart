@@ -3,4 +3,4 @@
 #@xscreensaver -no-splash
 
 @unclutter
-@$HOME/photOS/photos/basic.sh
+@$HOME/photOS/photos/basic.sh $HOME/photOS/photos/splash.png
