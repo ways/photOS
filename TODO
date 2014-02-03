@@ -1,6 +1,5 @@
-* Clean/separate out passwords from configs.
 * Make less dependant on owncloud? I.e. if one wants to use dropbox or none.
 * Make less dependant on paths.
 * Unsure if csync db will kill SD cards. Find and automate a solution. Temporary solution: external storage.
 * Github
-* Look at files from photOS 1
+* Look at/merge files from photOS 1.0
