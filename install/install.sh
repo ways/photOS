@@ -55,12 +55,12 @@ sudo cp -fv $HOME/photOS/install/fs2ram.conf /etc/fs2ram/
 echo "Disabling screensaver."
 sudo cp -fv $HOME/photOS/install/lightdm.conf /etc/lightdm/
 
-sudo cp -fv $HOME/photOS/install/ssmtp.conf /etc/
+sudo cp -fv $HOME/photOS/install/ssmtp.conf /etc/ssmtp/
 echo "root=${mailaddress}
 mailhub=${mailhub}
 AuthUser=${mailuser}
 AuthPass=${mailpass}
-" | sudo tee -a /etc/ssmtp.conf > /dev/null
+" | sudo tee -a /etc/ssmtp/ssmtp.conf > /dev/null
 
 echo "Copying in crontabs if the user doesn't have one already."
 [[ 1 -eq ${force} || 0 -eq $( crontab -l > /dev/null ) ]] && {
