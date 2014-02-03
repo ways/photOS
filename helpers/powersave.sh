@@ -7,11 +7,15 @@ if [ -z $1 ] ; then
 fi
 
 #turn off screen ##use off or standby
-[ $1 -eq 0 ] && \
-	logger "powersave.sh: deluminate!" && \
-	DISPLAY=:0.0 xset dpms force off
+[ $1 -eq 0 ] && {
+  logger "powersave.sh: deluminate!"
+  DISPLAY=:0.0 xset dpms force off
+}
 
 #turn on screen
-[ $1 -eq 1 ] && \
-	logger "powersave.sh: illuminate!" && \
-	DISPLAY=:0.0 xset dpms force on
+[ $1 -eq 1 ] && {
+  logger "powersave.sh: illuminate!"
+  DISPLAY=:0.0 xset dpms force on
+  sudo chvt 2;
+  sudo chvt 7;
+}
