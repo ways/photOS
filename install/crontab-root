@@ -2,8 +2,3 @@
 
 MAILTO=user@example.com
 
-#Powering off HDMI
-0 1 * * *	tvservice --off > /dev/null
-
-#Powering on HDMI with preferred settings
-0 6 * * *	tvservice --preferred > /dev/null ; chvt 2; chvt 7

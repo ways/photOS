@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 #Look for very recent pictures, and display them
 

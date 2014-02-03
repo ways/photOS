@@ -12,5 +12,8 @@ PHOTOS="$HOME/photOS/"
 #Baby monitor
 0 19 * * * 	$PHOTOS/helpers/kill.sh; $PHOTOS/streams/dpi.sh
 
+#Morning
+0 6 * * *       powersave.sh 1
+
 #Night
 0 1 * * *	$PHOTOS/helpers/kill.sh

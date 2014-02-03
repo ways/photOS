@@ -1,11 +1,19 @@
 photOS v2
 =========
 
+Requirements
+------------
+* This has only been tested on raspbian, but should work on Debian, Ubuntu and similar.
+* Must run as user pi for now.
+* Made to work with ownCloud, but can be adapted to Dropbox or no syncing at all.
+* Familiarity with the CLI is probably needed.
+
 Install
 -------
 
-* Copy install/passwords.dist to install/passwords
-* Run install/install.sh
+* Copy photOS folder to /home/pi/
+* Copy photOS/install/passwords.dist to photOS/install/passwords, and edit values.
+* Run photOS/install/install.sh as user pi
 
 Structure
 ---------
@@ -13,8 +21,8 @@ Structure
 * install/ is only needed at install-time
 * photos/ are plugins to display local photos
 * videos/ are plugins to display local videos
-* webcams/ are plugins/examples to display webcam pics
+* webcams/ are plugins/examples to display webcam pics, weather maps and other online pics.
 * streams/ are plugins/examples to display video streams
-* helpers/ are scripts to sync ownCloud, kill scripts when needed, etc.
+* helpers/ are scripts to sync ownCloud, kill scripts when needed, run automated tasks etc.
 
 Check crontabs after install to customize your system.
