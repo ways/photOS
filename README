@@ -1,6 +1,11 @@
 photOS v2.0 beta
 ================
 
+Overview
+--------
+
+This is software for running a digital photo frame, using mostly ownCloud to populate it. Plugins for weather, video streaming, etc.
+
 Requirements
 ------------
 * This has only been tested on raspbian, but should work on Debian, Ubuntu and similar.
@@ -11,9 +16,13 @@ Requirements
 Install
 -------
 
+* Set up a fresh raspbian.
 * Copy photOS folder to /home/pi/
 * Copy photOS/install/passwords.dist to photOS/install/passwords, and edit values.
 * Run photOS/install/install.sh as user pi
+
+* At the other end:
+** Create an ownCloud user for this host on your ownCloud server. Share pictures and videos to that user, and they will automatically be synced.
 
 Structure
 ---------
