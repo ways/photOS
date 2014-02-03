@@ -73,7 +73,7 @@ echo "Copying in crontabs _IF_ the user doesn't have one already"
   echo "* User root didn't have one, or was forced."
   sudo crontab -r
   echo "MAILTO=${MAILTO}" | cat $HOME/photOS/install/crontab-root > /tmp/crontab-root
-  crontab /tmp/crontab-root
+  sudo crontab /tmp/crontab-root
   #rm -f /tmp/crontab-root;
   }
 

@@ -1,19 +1,20 @@
 # m h  dom mon dow   command
 
 MAILTO=user@example.com
-PHOTOS="$HOME/photOS/"
+HOME=/home/pi
+PHOTOS=${HOME}/photOS"
 
 #Sync owncloud
-@hourly		$PHOTOS/helpers/sync-owncloud.sh
+@hourly		${PHOTOS}/helpers/sync-owncloud.sh
 
-#Preliminary photo display
-0 7-18 * * *	$PHOTOS/photos/basic.sh
+#Normal photo display
+0 7-18 * * *	${PHOTOS}/photos/basic.sh
 
-#Baby monitor
-0 19 * * * 	$PHOTOS/helpers/kill.sh; $PHOTOS/streams/dpi.sh
+#Baby monitor streaming
+0 19 * * * 	${PHOTOS}/helpers/kill.sh; $PHOTOS/streams/dpi.sh
 
 #Morning
-0 6 * * *       powersave.sh 1
+0 6 * * *       ${PHOTOS}/helpers/powersave.sh 1
 
 #Night
-0 1 * * *	$PHOTOS/helpers/kill.sh
+0 1 * * *	${PHOTOS}/helpers/powersave.sh 0; ${PHOTOS}/helpers/kill.sh; 
