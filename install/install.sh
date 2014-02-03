@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 PASSWORDFILE="$HOME/photOS/install/passwords"
 force=0
@@ -18,11 +18,11 @@ read
   }
 
 echo "Looking for passwords in ${PASSWORDFILE}..."
-MAILTO=$( grep -i MAILTO ${PASSWORDFILE} | cut -d' ' -f2 | xargs )
+mailaddress=$( grep -i mailto ${PASSWORDFILE} | cut -d' ' -f2 | xargs )
 mailhub=$( grep -i ssmtp ${PASSWORDFILE} | cut -d' ' -f2 | xargs )
 mailuser=$( grep -i ssmtp ${PASSWORDFILE} | cut -d' ' -f3 | xargs )
 mailpass=$( grep -i ssmtp ${PASSWORDFILE} | cut -d' ' -f4 | xargs )
-echo "* MAILTO - ${MAILTO}. Mailhub ${mailhub}, user $mailuser, pass $mailpass."
+echo "* MAILTO - ${mailaddress}. Mailhub ${mailhub}, user $mailuser, pass $mailpass."
 
 owncloud_host=$( grep -i 'owncloud' ${PASSWORDFILE}  | cut -d' ' -f2 | xargs )
 owncloud_user=$( grep -i 'owncloud' ${PASSWORDFILE}  | cut -d' ' -f3 | xargs )
@@ -33,10 +33,11 @@ echo "Deleting some example files."
 sudo rm -rfv $HOME/ocr_pi.png $HOME/python_games
 
 echo "Installing software..."
-sudo apt-get update -qq; sudo apt-get install -q unclutter libnotify-bin feh libimage-exiftool-perl screen mosh libocsync-plugin-owncloud fs2ram rsync ssmtp mailutils
+#sudo apt-get update -qq
+#sudo apt-get install -q unclutter libnotify-bin feh libimage-exiftool-perl screen mosh libocsync-plugin-owncloud fs2ram rsync ssmtp mailutils
 
 echo "Uninstalling software..."
-sudo apt-get remove -q --purge scratch
+#sudo apt-get remove -q --purge scratch
 
 echo "Adding services to LXDE autostart."
 sudo cp -fv $HOME/photOS/install/autostart /etc/xdg/lxsession/LXDE/autostart
@@ -55,24 +56,24 @@ echo "Disabling screensaver."
 sudo cp -fv $HOME/photOS/install/lightdm.conf /etc/lightdm/
 
 sudo cp -fv $HOME/photOS/install/ssmtp.conf /etc/
-echo "root=${MAILTO}
+echo "root=${mailaddress}
 mailhub=${mailhub}
 AuthUser=${mailuser}
 AuthPass=${mailpass}
 " | sudo tee -a /etc/ssmtp.conf > /dev/null
 
-echo "Copying in crontabs _IF_ the user doesn't have one already"
-[[ 1 -eq ${force} || 0 -eq $( crontab -l -u pi ) ]] && {
+echo "Copying in crontabs if the user doesn't have one already."
+[[ 1 -eq ${force} || 0 -eq $( crontab -l > /dev/null ) ]] && {
   echo "* User pi didn't have one, or was forced."
   crontab -r
-  echo "MAILTO=${MAILTO}" | cat $HOME/photOS/install/crontab-pi > /tmp/crontab-pi
+  echo "MAILTO=${mailaddress}" | cat - $HOME/photOS/install/crontab-pi > /tmp/crontab-pi
   crontab /tmp/crontab-pi
   #rm -f /tmp/crontab-pi;
 }
-[[ 1 -eq ${force} || 0 -eq $( sudo crontab -l -u root ) ]] && {
+[[ 1 -eq ${force} || 0 -eq $( sudo crontab -l > /dev/null ) ]] && {
   echo "* User root didn't have one, or was forced."
   sudo crontab -r
-  echo "MAILTO=${MAILTO}" | cat $HOME/photOS/install/crontab-root > /tmp/crontab-root
+  echo "MAILTO=${mailaddress}" | cat - $HOME/photOS/install/crontab-root > /tmp/crontab-root
   sudo crontab /tmp/crontab-root
   #rm -f /tmp/crontab-root;
   }
