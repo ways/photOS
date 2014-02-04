@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# Download imgurl photos from a subreddit.
+#
+# Usage example:
+# ${PHOTOS}/photos/slideshow.sh $( ${PHOTOS}/webcams/reddit-images.sh newsporn )
 
 . /home/pi/photOS/helpers/include.sh
 
