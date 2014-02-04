@@ -1,6 +1,9 @@
 Features:
 * Enable touch for photo, activies, status, shutdown.
-* Plugin: slowTV, reddit imgs
+* Plugin: slowTV
+
+Problems:
+* Latest oclient doesn't work. The version I'm on (0.3) is very moody. Perhaps I have to use the official client.
 
 Organization:
 * Make less dependant on owncloud? I.e. if one wants to use dropbox or none.
