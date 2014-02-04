@@ -2,7 +2,7 @@
 
 #kill image app
 
-. /var/local/photOS/bin/include.sh
+. /home/pi/photOS/helpers/include.sh
 
-logger "kill.sh: killing existing slideshows, videos, streams"
-killall feh vlc mplayer
+logger --tag "kill.sh" "Stopping existing slideshows, videos, streams."
+killall feh vlc mplayer > /dev/null 2>&1

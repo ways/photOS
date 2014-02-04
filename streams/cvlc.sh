@@ -10,7 +10,7 @@ FILES=""
 [[ -z "$1" ]] || FILES="$@"
 RUNNING=$( pgrep -f 'vlc ' )
 
-echo "$FILES"
+logger --tag="cvlc.sh" "Streaming ${FILES}"
 DISPLAY=:0 cvlc $FILES > /dev/null 2>&1 &
 
 sleep 5
