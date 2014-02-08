@@ -48,7 +48,8 @@ mkdir -p $HOME/.local/share/data/ownCloud
 sudo cp -v $HOME/photOS/install/owncloud.cfg $HOME/.local/share/data/ownCloud/
 echo "url=${owncloud_host}
 user=${owncloud_user}
-pass=${owncloud_pass}" >> $HOME/.local/share/data/ownCloud/owncloud.cfg
+pass=${owncloud_pass}
+" >> $HOME/.local/share/data/ownCloud/owncloud.cfg
 
 sudo cp -fv $HOME/photOS/install/fs2ram.conf /etc/fs2ram/
 

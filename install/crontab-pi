@@ -7,13 +7,11 @@ PHOTOS=${HOME}/photOS"
 @hourly		${PHOTOS}/helpers/sync-owncloud.sh
 
 #Normal photo display
-0 7-18 * * *	${PHOTOS}/photos/basic.sh
-
-#Baby monitor streaming
-0 19 * * * 	${PHOTOS}/helpers/kill.sh; $PHOTOS/streams/dpi.sh
+0 7-18 * * *	${PHOTOS}/photos/slideshow.sh
 
 #Morning
-0 6 * * *       ${PHOTOS}/helpers/powersave.sh 1
+0 6 * * *       ${PHOTOS}/helpers/powersave.sh 1; ${PHOTOS}/webcams/weather.sh
 
 #Night
-0 1 * * *	${PHOTOS}/helpers/powersave.sh 0; ${PHOTOS}/helpers/kill.sh; 
+0 1 * * *       ${PHOTOS}/helpers/powersave.sh 0; ${PHOTOS}/helpers/kill.sh; 
+
