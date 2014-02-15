@@ -20,8 +20,8 @@ rm -f ${TMPDIR}/*
 
 links=$( wget -O - --quiet --random-wait \
   "${url}" \
-  | grep -Eo 'http://[^&]+jpg' )
+  | grep -Eo 'http://[^&]+jpg' | head -n ${maxcount} )
 
-echo $links | head -n ${maxcount} | xargs wget -nc --quiet --random-wait
+echo $links | xargs wget -nc --quiet --random-wait
 
 echo ${TMPDIR}
