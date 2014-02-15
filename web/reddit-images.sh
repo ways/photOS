@@ -11,13 +11,14 @@ subreddit="newsporn"
 [[ -z $1 ]] || subreddit="$1"
 
 logger --tag="reddit-images.sh" "Fetching images from ${subreddit} to ${TMPDIR}."
+logger --tag="reddit-images.sh" "http://www.reddit.com/r/${subreddit}/top/.rss?sort=top&t=day"
 
 mkdir -p ${TMPDIR}
 cd ${TMPDIR} || exit 1
 rm -f ${TMPDIR}/*
 
 links=$( wget -O - --quiet --random-wait \
-  http://www.reddit.com/r/$subreddit.rss \
+  "http://www.reddit.com/r/${subreddit}/top/.rss?sort=top&t=day" \
   | grep -Eo 'http://i.imgur.com[^&]+jpg' )
 
 echo $links | xargs wget -nc --quiet --random-wait

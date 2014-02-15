@@ -16,6 +16,8 @@ fi
 [ $1 -eq 1 ] && {
   logger "powersave.sh: illuminate!"
   DISPLAY=:0.0 xset dpms force on
-  sudo chvt 2;
+  sleep 1
+  sudo chvt 3;
+  sleep 1
   sudo chvt 7;
 }
