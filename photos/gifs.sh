@@ -1,5 +1,6 @@
 #!/bin/bash
 # Display gifs given on CLI using mplayer.
+# Unable to go fullscreen with rpi (-zoom)
 
 . /home/pi/photOS/helpers/include.sh
 
