@@ -10,14 +10,14 @@ fi
 [ $1 -eq 0 ] && {
   logger "powersave.sh: deluminate!"
   DISPLAY=:0.0 xset dpms force off
+  /usr/bin/tvservice --off
 }
 
 #turn on screen
 [ $1 -eq 1 ] && {
   logger "powersave.sh: illuminate!"
   DISPLAY=:0.0 xset dpms force on
-  sleep 1
+  /usr/bin/tvservice --preferred
   sudo chvt 3;
-  sleep 1
   sudo chvt 7;
 }
