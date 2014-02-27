@@ -1,6 +1,7 @@
 Features:
 * Enable touch for photo, activies, status, shutdown.
 * Plugin: slowTV
+* Clean up ./helpers/detect_xbmc.sh
 
 Problems:
 * Latest oclient doesn't work. The version I'm on (0.3) is very moody. Perhaps I have to use the official client.
