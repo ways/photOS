@@ -12,9 +12,6 @@ logger --tag "playall.sh" "Displaying videos from $FILES"
 
 find ${FILES} -type f -iname \*.avi -or -iname \*.mp\* -print0 \
   | sort --random-sort --zero-terminated \
-  | while read -d $'\0' video; do
-  echo "playing ${video}"
-  DISPLAY=:0 omxplayer --blank "${video}" 
-done
+  | xargs -0 -I {} omxplayer --vol 0 --blank "{}" > /dev/null 2>&1
 
 logger --tag "playall.sh" "Done"
