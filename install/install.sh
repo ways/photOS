@@ -20,6 +20,9 @@ read
 
 . ${CONFIGFILE}
 echo ${USERNAME}
+echo $HOMEDIR
+echo $MAINPHOTOSDIR
+echo $DATADIR
 
 [[ -e $PASSWORDFILE ]] || \
   { echo "No password-file. Please copy ${PASSWORDFILE}.dist to ${PASSWORDFILE} and put your passwords in it.";
