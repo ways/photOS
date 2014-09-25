@@ -1,8 +1,6 @@
 #!/bin/bash -e
 
-HOMEDIR=${HOME}
-USERNAME=$( whoami )
-PHOTOSDIR="${HOMEDIR}/photOS/"
+CONFIGFILE="config.ini"
 PASSWORDFILE="${PHOTOSDIR}/install/passwords"
 
 force=0
@@ -12,14 +10,23 @@ echo "Usage: ${0} [-f]
 
 -f force overwriting crontabs even if they exist.
 
-
 This will overwrite configs for lots of software, and use sudo to install/uninstall stuff. It is only recommended to do this on a fresh install. Hit enter if OK, or Ctrl + c to stopp me."
 read
+
+[[
+
+[[ -e ${CONFIGFILE} ]] || \
+  { echo "Unable to locate config file ${CONFIGFILE}. Please run me from main photOS dir.";
+    exit 1;
+  }
 
 [[ -e $PASSWORDFILE ]] || \
   { echo "No password-file. Please copy ${PASSWORDFILE}.dist to ${PASSWORDFILE} and put your passwords in it.";
     exit 1;
   }
+
+echo "TODO: get username etc and add to configfile"
+source ${CONFIGFILE}
 
 echo "Looking for passwords in ${PASSWORDFILE}..."
 mailaddress=$( grep -i mailto ${PASSWORDFILE} | cut -d' ' -f2 | xargs )
@@ -60,6 +67,15 @@ sudo cp -fv $HOME/photOS/install/fs2ram.conf /etc/fs2ram/
 echo "Disabling screensaver."
 sudo cp -fv $HOME/photOS/install/lightdm.conf /etc/lightdm/
 
+echo "Setting up autologin IF we've got lightdm"
+# set up lightdm autologin
+sudo sed -i 's/^#autologin-user=.*/autologin-user=${USERNAME}/' /etc/lightdm/lightdm.conf
+sudo sed -i 's/^#autologin-user-timeout=.*/autologin-user-timeout=0/' /etc/lightdm/lightdm.conf
+
+# set MATE as default session, otherwise login will fail
+#sudo sed -i 's/^#user-session=.*/user-session=mate/' /etc/lightdm/lightdm.conf
+
+echo "Setting up mail."
 sudo cp -fv $HOME/photOS/install/ssmtp.conf /etc/ssmtp/
 echo "root=${mailaddress}
 mailhub=${mailhub}
