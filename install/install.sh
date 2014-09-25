@@ -13,8 +13,6 @@ echo "Usage: ${0} [-f]
 This will overwrite configs for lots of software, and use sudo to install/uninstall stuff. It is only recommended to do this on a fresh install. Hit enter if OK, or Ctrl + c to stopp me."
 read
 
-[[
-
 [[ -e ${CONFIGFILE} ]] || \
   { echo "Unable to locate config file ${CONFIGFILE}. Please run me from main photOS dir.";
     exit 1;
