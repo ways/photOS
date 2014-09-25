@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 CONFIGFILE="config.ini"
-PASSWORDFILE="${PHOTOSDIR}/install/passwords"
+PASSWORDFILE="${MAINPHOTOSDIR}/install/passwords"
 
 force=0
 [[ "$1" == "-f" ]] && force=1
