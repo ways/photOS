@@ -1,0 +1,4 @@
+HOMEDIR=${HOME}
+USERNAME=$( whoami )
+PHOTOSDIR="${HOMEDIR}/photOS/"
+PASSWORDFILE="${PHOTOSDIR}/install/passwords"
