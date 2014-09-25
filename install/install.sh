@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
 CONFIGFILE="config.ini"
-PASSWORDFILE="${MAINPHOTOSDIR}/install/passwords"
 
 force=0
 [[ "$1" == "-f" ]] && force=1
@@ -23,6 +22,8 @@ echo ${USERNAME}
 echo $HOMEDIR
 echo $MAINPHOTOSDIR
 echo $DATADIR
+
+PASSWORDFILE="${MAINPHOTOSDIR}/install/passwords"
 
 [[ -e $PASSWORDFILE ]] || \
   { echo "No password-file. Please copy ${PASSWORDFILE}.dist to ${PASSWORDFILE} and put your passwords in it.";
