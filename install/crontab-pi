@@ -3,6 +3,9 @@
 HOME=/home/pi
 PHOTOS=${HOME}/photOS"
 
+#Make sure monitor stays on
+@reboot         ${PHOTOS}/helpers/powersave.sh 1
+
 #Sync owncloud
 @hourly		${PHOTOS}/helpers/sync-owncloud.sh
 

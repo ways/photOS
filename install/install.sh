@@ -1,6 +1,10 @@
 #!/bin/bash -e
 
-PASSWORDFILE="$HOME/photOS/install/passwords"
+source ../config.sh || {
+  echo "Error reading config.";
+  exit 1;
+}
+
 force=0
 [[ "$1" == "-f" ]] && force=1
 
@@ -33,11 +37,11 @@ echo "Deleting some example files."
 sudo rm -rfv $HOME/ocr_pi.png $HOME/python_games
 
 echo "Installing software..."
-#sudo apt-get update -qq
-#sudo apt-get install -q unclutter libnotify-bin feh libimage-exiftool-perl screen mosh libocsync-plugin-owncloud fs2ram rsync ssmtp mailutils
+sudo apt-get update -qq
+sudo apt-get install -q unclutter libnotify-bin feh libimage-exiftool-perl screen mosh libocsync-plugin-owncloud fs2ram rsync ssmtp mailutils
 
 echo "Uninstalling software..."
-#sudo apt-get remove -q --purge scratch
+sudo apt-get remove -q --purge scratch
 
 echo "Adding services to LXDE autostart."
 sudo cp -fv $HOME/photOS/install/autostart /etc/xdg/lxsession/LXDE/autostart

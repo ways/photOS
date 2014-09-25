@@ -1,4 +1,7 @@
 Features:
+* Auto install of owncloud-client-cmd.
+* Allow configurable path, user, etc.
+* Test on non-rpi.
 * Enable touch for photo, activies, status, shutdown.
 * Plugin: slowTV
 * Clean up ./helpers/detect_xbmc.sh

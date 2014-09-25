@@ -19,6 +19,7 @@ Install
 * Set up a fresh raspbian.
 * Copy photOS folder to /home/pi/
 * Copy photOS/install/passwords.dist to photOS/install/passwords, and edit values.
+* Edit photos/config.sh if necessary.
 * Run photOS/install/install.sh as user pi
 
 * At the other end:

@@ -17,6 +17,10 @@ fi
 [ $1 -eq 1 ] && {
   logger "powersave.sh: illuminate!"
   DISPLAY=:0.0 xset dpms force on
+  #DISPLAY=:0.0 xset -dpms
+  #DISPLAY=:0.0 xset s off
+
+  DISPLAY=:0.0 xscreensaver-command -exit > /dev/null 2>&1
   /usr/bin/tvservice --preferred > /dev/null 2>&1
   sudo chvt 3;
   sudo chvt 7;
