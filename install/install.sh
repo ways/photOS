@@ -1,9 +1,9 @@
 #!/bin/bash -e
 
-source ../config.sh || {
-  echo "Error reading config.";
-  exit 1;
-}
+HOMEDIR=${HOME}
+USERNAME=$( whoami )
+PHOTOSDIR="${HOMEDIR}/photOS/"
+PASSWORDFILE="${PHOTOSDIR}/install/passwords"
 
 force=0
 [[ "$1" == "-f" ]] && force=1
