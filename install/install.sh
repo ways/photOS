@@ -18,7 +18,8 @@ read
     exit 1;
   }
 
-source ${CONFIGFILE}
+. ${CONFIGFILE}
+echo ${USERNAME}
 
 [[ -e $PASSWORDFILE ]] || \
   { echo "No password-file. Please copy ${PASSWORDFILE}.dist to ${PASSWORDFILE} and put your passwords in it.";
