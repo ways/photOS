@@ -18,13 +18,14 @@ read
     exit 1;
   }
 
+source ${CONFIGFILE}
+
 [[ -e $PASSWORDFILE ]] || \
   { echo "No password-file. Please copy ${PASSWORDFILE}.dist to ${PASSWORDFILE} and put your passwords in it.";
     exit 1;
   }
 
 echo "TODO: get username etc and add to configfile"
-source ${CONFIGFILE}
 
 echo "Looking for passwords in ${PASSWORDFILE}..."
 mailaddress=$( grep -i mailto ${PASSWORDFILE} | cut -d' ' -f2 | xargs )
